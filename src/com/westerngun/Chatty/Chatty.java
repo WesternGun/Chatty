@@ -40,7 +40,7 @@ public class Chatty {
                 wall(splits[0]);
             } else if (splits.length >= 3) {
                 if (splits[1].equals("->")) {
-                    posting(splits[0], line.substring(line.indexOf("->") + 3, line.length()));
+                    posting(splits[0], Util.getContentFromInput(line));
                 } else if (splits[1].equals("follows")) {
                     following(splits[0], splits[2]);
                 }
@@ -110,11 +110,13 @@ public class Chatty {
         if (user1obj == null) {
             user1obj = new User();
             user1obj.setName(user1);
+            users.add(user1obj);
         }
         User user2obj = containsUser(user2);
         if (user2obj == null) {
             user2obj = new User();
             user2obj.setName(user2);
+            users.add(user2obj);
         }
         List<User> following = user1obj.getFollowings();
         if (!following.contains(user2obj)) {

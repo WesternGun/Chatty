@@ -30,4 +30,13 @@ public class Util {
             return Integer.toString(day);
         }
     }
+    
+    /**
+     * Extract the tweet content from the user input line.
+     * @param input the line user has entered.
+     * @return the real content of tweet to publish.
+     */
+    protected static String getContentFromInput(String input) {
+        return input.substring(input.indexOf("->") + 3, input.length());
+    }
 }
