@@ -1,11 +1,16 @@
 package com.westerngun.Chatty;
 
+import java.time.Duration;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.temporal.TemporalAccessor;
 import java.util.Date;
 
 public class Util {
-    static String dateDiff(Date date1, Date date2) {
-        long seconds = date2.getTime() - date1.getTime();
+    static String dateDiff(LocalDateTime date1, LocalDateTime date2) {
+        Duration secondsDuration = Duration.between(date1, date2);
+        long seconds = secondsDuration.getSeconds();
         if (0 <= seconds && seconds < 60) {
             return seconds + " seconds ago";
         } else if (seconds <= 3600){

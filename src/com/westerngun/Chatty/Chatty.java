@@ -1,6 +1,7 @@
 package com.westerngun.Chatty;
 
 import java.io.InputStream;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Date;
@@ -90,7 +91,7 @@ public class Chatty {
     private void posting(String username, String tweet) {
         Tweet newTweet = new Tweet();
         newTweet.setContent(tweet);
-        newTweet.setDate(new Date());
+        newTweet.setDate(LocalDateTime.now());
         User current = containsUser(username);
         if (current != null) {
             newTweet.setUser(current);
@@ -124,7 +125,7 @@ public class Chatty {
         }
     }
     private void showTweet(Tweet tweet) {
-        System.out.println(tweet.getContent() + " (" + Util.dateDiff(new Date(), tweet.getDate()) + ")");
+        System.out.println(tweet.getContent() + " (" + Util.dateDiff(tweet.getDate(), LocalDateTime.now()) + ")");
     }
     
     private void noTweets() {

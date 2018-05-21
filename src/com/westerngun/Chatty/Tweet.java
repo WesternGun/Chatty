@@ -1,15 +1,16 @@
 package com.westerngun.Chatty;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class Tweet {
     private String content;
-    private Date date;
+    private LocalDateTime date;
     private User user;
-    protected Date getDate() {
+    protected LocalDateTime getDate() {
         return date;
     }
-    protected void setDate(Date date) {
+    protected void setDate(LocalDateTime date) {
         this.date = date;
     }
     protected User getUser() {
